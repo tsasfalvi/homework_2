@@ -1,7 +1,9 @@
-import java.util.List;
-import java.util.Map;
+package proxy;
+import proxy.domain.Person;
+import proxy.repository.Repository;
 
-import static com.sun.corba.se.impl.util.RepositoryId.cache;
+import java.util.List;
+import java.util.Optional;
 
 public class Proxy {
     private List<Repository> repositories;
@@ -10,13 +12,14 @@ public class Proxy {
         this.repositories = repositories;
     }
 
-    public Person readPerson(String name) {
+    public Optional<Person> readPerson(String name) {
         for (Repository repository : repositories) {
             Person person = repository.readPerson(name);
             if (person != null) {
-                return person;
+                return Optional.of(person);
             }
         }
 
+        return Optional.empty();
     }
 }

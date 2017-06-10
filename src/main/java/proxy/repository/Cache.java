@@ -1,3 +1,6 @@
+package proxy.repository;
+import proxy.domain.Person;
+
 import java.util.Map;
 
 public class Cache implements Repository {
