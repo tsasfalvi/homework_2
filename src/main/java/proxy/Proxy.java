@@ -1,25 +1,31 @@
 package proxy;
-import proxy.domain.Person;
-import proxy.repository.Repository;
 
-import java.util.List;
+import proxy.cache.Cache;
+import proxy.domain.Person;
+import service.PersonService;
+
 import java.util.Optional;
 
 public class Proxy {
-    private List<Repository> repositories;
+    private final Cache cache;
+    private final PersonService personService;
 
-    public Proxy(List<Repository> repositories) {
-        this.repositories = repositories;
+
+    public Proxy(Cache cache, PersonService personService) {
+        this.cache = cache;
+        this.personService = personService;
     }
 
     public Optional<Person> readPerson(String name) {
-        for (Repository repository : repositories) {
-            Person person = repository.readPerson(name);
-            if (person != null) {
-                return Optional.of(person);
-            }
+        Optional<Person> personOptional = cache.get(name);
+
+        if (personOptional.isPresent()) {
+            return personOptional;
         }
 
-        return Optional.empty();
+        personOptional = personService.readPerson(name);
+        personOptional.ifPresent(cache::store);
+
+        return personOptional;
     }
 }

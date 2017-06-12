@@ -1,5 +1,8 @@
 package proxy.repository;
 import proxy.domain.Person;
+
+import java.util.Optional;
+
 public interface Repository {
-    Person readPerson(String name);
+    Optional<Person> readPerson(String name);
 }

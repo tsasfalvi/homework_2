@@ -1,0 +1,15 @@
+# Package Files #
+*.jar
+
+# User-specific stuff:
+.idea/**/workspace.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+### Gradle template
+.gradle
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
