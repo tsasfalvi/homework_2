@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import proxy.cache.Cache;
 import proxy.domain.Person;
-import service.PersonService;
+import proxy.service.PersonService;
 
 import java.util.Optional;
 

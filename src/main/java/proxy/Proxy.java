@@ -2,7 +2,7 @@ package proxy;
 
 import proxy.cache.Cache;
 import proxy.domain.Person;
-import service.PersonService;
+import proxy.service.PersonService;
 
 import java.util.Optional;
 

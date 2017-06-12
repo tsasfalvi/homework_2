@@ -1,4 +1,4 @@
-package service;
+package proxy.service;
 
 import proxy.domain.Person;
 import proxy.repository.Repository;

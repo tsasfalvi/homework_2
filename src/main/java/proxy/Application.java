@@ -4,7 +4,7 @@ import proxy.cache.InfiniteCache;
 import proxy.repository.FileRepository;
 import proxy.repository.MySqlRepository;
 import proxy.repository.Repository;
-import service.PersonService;
+import proxy.service.PersonService;
 
 import java.util.ArrayList;
 
